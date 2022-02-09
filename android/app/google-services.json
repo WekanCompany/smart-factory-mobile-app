@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26573404737",
+    "project_id": "smartfact-10",
+    "storage_bucket": "smartfact-10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26573404737:android:5b45962966177bf00124c0",
+        "android_client_info": {
+          "package_name": "com.smartfactory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26573404737-g3l6bhhi8n9ho9p4m78jh24irrccabme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgwjCuL1zaY15WFBs3_U-WTBb1nPonQSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26573404737-g3l6bhhi8n9ho9p4m78jh24irrccabme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

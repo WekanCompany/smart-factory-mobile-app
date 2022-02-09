@@ -1,0 +1,1 @@
+export const REALM_APP_ID = 'iiot-smart-factory-demo-nphrf';
