@@ -217,7 +217,7 @@ export function HomeScreen({ navigation }) {
           </View>
         </View>
       </ScrollView>
-      <View style={{ paddingBottom: 0, textAlign: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
+      <View style={{ paddingBottom: 10, textAlign: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
         <Image alt='Img' height={9} width={200} source={Mongo} />
       </View>
     </View>
