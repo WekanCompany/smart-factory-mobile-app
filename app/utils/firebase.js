@@ -28,7 +28,7 @@ const showNotification = (remoteMessage) => {
     return;
 }
 
-export const firebaseMessageHandler = async () => {
+export const firebaseMessageHandler = async (userEmail) => {
     messaging().setBackgroundMessageHandler(async remoteMessage => {
         if (userEmail != null) {
             showNotification(remoteMessage);

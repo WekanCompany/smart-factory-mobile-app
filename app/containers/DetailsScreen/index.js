@@ -5,7 +5,7 @@
  */
 
 import { setLoading } from 'containers/SensorsScreen/actions';
-import { Button, Divider, HStack, Image, Input, Text, VStack } from 'native-base';
+import { Button, Divider, HStack, Image, Input, Text, VStack, TextArea } from 'native-base';
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useLayoutEffect, useRef } from 'react';
 import { BackHandler, ScrollView, View } from 'react-native';
@@ -26,8 +26,8 @@ var ObjectID = require("bson-objectid");
 export function DetailsScreen(props) {
   const { navigation } = props;
   const dispatch = useDispatch();
-  const [formData, setData] = React.useState({});
   const [sensor, setSensor] = React.useState(props?.route?.params?.sensor ?? {});
+  const [notes, setNotes] = React.useState(sensor?.notes ?? '')
   const realmConnection = useSelector(state => state?.global?.realmConnection)
   const [isAcknowledging, setIsAcknowledging] = React.useState(false);
   const isAcknowledgeButtonRef = useRef();
@@ -93,12 +93,16 @@ export function DetailsScreen(props) {
       let sensorFromRealm = realmConnection
         .objects("sensorData")
         .filtered('_id = $0', ObjectID(sensor?._id))
-      sensorFromRealm[0].notes = formData?.notes ?? '';
+      sensorFromRealm[0].notes = notes ?? '';
       sensorFromRealm[0].acknowledged = true;
       sensorFromRealm[0].acknowledgedBy = userId;
       setSensor(sensorFromRealm[0]);
       setIsAcknowledging(false);
     });
+  };
+
+  const demoValueControlledTextArea = e => {
+    setNotes(e.currentTarget.value);
   };
 
   return (
@@ -144,14 +148,15 @@ export function DetailsScreen(props) {
             <View style={{ backgroundColor: 'white' }}>
               <VStack space={2} >
                 <Text fontSize={15} fontWeight={600} >Provide Clarifications</Text>
-                <Input
-                  multiline
+                <TextArea
                   blurOnSubmit={true}
                   ref={isAcknowledgeButtonRef}
-                  isDisabled={sensor?.acknowledged} value={sensor?.notes} onChangeText={value => setData({
-                    ...formData,
-                    notes: value
-                  })} h={20} placeholder="Add Notes..." />
+                  isDisabled={sensor?.acknowledged} 
+                  value={notes} 
+                  onChangeText={value => {
+                    setNotes(value)
+                  }} 
+                  h={20} placeholder="Add Notes..." />
                 <Button
                   _spinner={{
                     color: "black"

@@ -24,7 +24,7 @@ export function SplashScreen({
   useEffect(async () => {
     let fcmToken = await getAndSetFCMToken();
     let userEmail = await AsyncStorage.getItem('userEmail')
-    firebaseMessageHandler();
+    firebaseMessageHandler(userEmail);
     if (userEmail != null && fcmToken != null) {
       const user = await loginUser(userEmail, '', 'master', fcmToken)
       const realm = await getRealm(user, 'master');

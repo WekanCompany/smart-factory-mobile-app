@@ -16,10 +16,8 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* SmartFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SmartFactoryTests.m */; };
-		8A5C1D3127B17FCF005EF069 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A5C1D3027B17FCF005EF069 /* GoogleService-Info.plist */; };
-		8A5C1D3227B17FCF005EF069 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A5C1D3027B17FCF005EF069 /* GoogleService-Info.plist */; };
-		8A7F68B827B3AEF6004D204E /* Downloads in Resources */ = {isa = PBXBuildFile; fileRef = 8A7F68B727B3AEF6004D204E /* Downloads */; };
-		8A7F68B927B3AEF6004D204E /* Downloads in Resources */ = {isa = PBXBuildFile; fileRef = 8A7F68B727B3AEF6004D204E /* Downloads */; };
+		8A3290F827B3F12C00688273 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3290F727B3F12C00688273 /* GoogleService-Info.plist */; };
+		8A3290F927B3F12C00688273 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3290F727B3F12C00688273 /* GoogleService-Info.plist */; };
 		F5293D6333BF96BF525E7F61 /* libPods-SmartFactory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320067209440C930BB695503 /* libPods-SmartFactory.a */; };
 /* End PBXBuildFile section */
 
@@ -57,9 +55,8 @@
 		2D02E4901E0B4A5D006451C7 /* SmartFactory-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SmartFactory-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		320067209440C930BB695503 /* libPods-SmartFactory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartFactory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D8735336DFB1097CDD323B /* Pods-SmartFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartFactory.release.xcconfig"; path = "Target Support Files/Pods-SmartFactory/Pods-SmartFactory.release.xcconfig"; sourceTree = "<group>"; };
+		8A3290F727B3F12C00688273 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A3EF6DB27B17862001AA073 /* SmartFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SmartFactory.entitlements; path = SmartFactory/SmartFactory.entitlements; sourceTree = "<group>"; };
-		8A5C1D3027B17FCF005EF069 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8A7F68B727B3AEF6004D204E /* Downloads */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Downloads; path = ../../../../../../Downloads; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -117,8 +114,7 @@
 		13B07FAE1A68108700A75B9A /* SmartFactory */ = {
 			isa = PBXGroup;
 			children = (
-				8A7F68B727B3AEF6004D204E /* Downloads */,
-				8A5C1D3027B17FCF005EF069 /* GoogleService-Info.plist */,
+				8A3290F727B3F12C00688273 /* GoogleService-Info.plist */,
 				8A3EF6DB27B17862001AA073 /* SmartFactory.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -333,10 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A7F68B827B3AEF6004D204E /* Downloads in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				8A5C1D3127B17FCF005EF069 /* GoogleService-Info.plist in Resources */,
+				8A3290F827B3F12C00688273 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-				8A5C1D3227B17FCF005EF069 /* GoogleService-Info.plist in Resources */,
-				8A7F68B927B3AEF6004D204E /* Downloads in Resources */,
+				8A3290F927B3F12C00688273 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
