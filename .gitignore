@@ -12,7 +12,8 @@ dist/
 .gradle/
 build/
 Pods/
-
+google-services.json
+GoogleService-Info.plist
 # Xcode
 #
 build/
