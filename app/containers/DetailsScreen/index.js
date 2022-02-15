@@ -83,26 +83,24 @@ export function DetailsScreen(props) {
   }, []);
 
   const onSubmitAcknowledgeOrBack = async () => {
-    if (sensor?.acknowledged) {
-      navigation.navigate('Sensors')
-    }
-    let userId = await AsyncStorage.getItem('userId');
     setIsAcknowledging(true);
-    dispatch(setLoading(true))
-    realmConnection.write(() => {
-      let sensorFromRealm = realmConnection
-        .objects("sensorData")
-        .filtered('_id = $0', ObjectID(sensor?._id))
-      sensorFromRealm[0].notes = notes ?? '';
-      sensorFromRealm[0].acknowledged = true;
-      sensorFromRealm[0].acknowledgedBy = userId;
-      setSensor(sensorFromRealm[0]);
+    if (sensor?.acknowledged) {
       setIsAcknowledging(false);
-    });
-  };
-
-  const demoValueControlledTextArea = e => {
-    setNotes(e.currentTarget.value);
+      return navigation.navigate('Sensors')
+    } else {
+      let userId = await AsyncStorage.getItem('userId');
+      dispatch(setLoading(true))
+      realmConnection.write(() => {
+        let sensorFromRealm = realmConnection
+          .objects("sensorData")
+          .filtered('_id = $0', ObjectID(sensor?._id))
+        sensorFromRealm[0].notes = notes ?? '';
+        sensorFromRealm[0].acknowledged = true;
+        sensorFromRealm[0].acknowledgedBy = userId;
+        setSensor(sensorFromRealm[0]);
+        setIsAcknowledging(false);
+      });
+    }
   };
 
   return (
@@ -151,11 +149,11 @@ export function DetailsScreen(props) {
                 <TextArea
                   blurOnSubmit={true}
                   ref={isAcknowledgeButtonRef}
-                  isDisabled={sensor?.acknowledged} 
-                  value={notes} 
+                  isDisabled={sensor?.acknowledged}
+                  value={notes}
                   onChangeText={value => {
                     setNotes(value)
-                  }} 
+                  }}
                   h={20} placeholder="Add Notes..." />
                 <Button
                   _spinner={{

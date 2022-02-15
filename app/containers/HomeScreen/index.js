@@ -5,7 +5,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Box, Button, Center, FormControl, Heading, Image, Input, Text, VStack } from 'native-base';
+import { Box, Button, Center, FormControl, Heading, HStack, Image, Input, Text, VStack } from 'native-base';
 import PropTypes from 'prop-types';
 import React, { memo, useEffect, useLayoutEffect, useRef } from 'react';
 import { Alert, BackHandler, Pressable, ScrollView, View } from 'react-native';
@@ -19,8 +19,7 @@ import { getRealm, loginUser } from 'utils/realm';
 import { setRealmConnection, setRealmUserEmail } from './actions';
 import styles from './styles';
 
-let Loader = require('app/images/loader.png');
-let Mongo = require('app/images/mongo.png');
+let PMongo = require('app/images/pmongo.png');
 let LoginHeader = require('app/images/loginheader.png');
 let Wekan = require('app/images/wekan.png');
 let Eye = require('app/images/eye.png');
@@ -52,9 +51,9 @@ export function HomeScreen({ navigation }) {
     async function checkLoggedIn() {
       let userEmail = await AsyncStorage.getItem('userEmail')
       if (userEmail != null) {
-        navigation.navigate('Sensors')
+        navigation.navigate('Sensors');
       } else {
-        return <Loader />
+        navigation.navigate('Home');
       }
     }
     checkLoggedIn()
@@ -218,7 +217,14 @@ export function HomeScreen({ navigation }) {
         </View>
       </ScrollView>
       <View style={{ paddingBottom: 10, textAlign: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-        <Image alt='Img' height={9} width={200} source={Mongo} />
+        <HStack justifyContent="center">
+          <Center>
+            <Text style={{ color: '#041624' }} >Powered by</Text>
+          </Center>
+          <Center paddingBottom={1}>
+            <Image style={{ marginBottom: 0 }} alt='Img' height={6} width={100} source={PMongo} />
+          </Center>
+        </HStack>
       </View>
     </View>
   );

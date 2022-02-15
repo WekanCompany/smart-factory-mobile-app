@@ -69,6 +69,7 @@ export function SensorsScreen({
   }, []);
 
   async function getSensorsFromRealm() {
+    setSensors([])
     setIsLoadingSensors(true);
     let sensors = realmConnection
       .objects("sensorData")
@@ -90,7 +91,12 @@ export function SensorsScreen({
     return true;
   };
 
+  const onRealmChange = async () => {
+    await getSensorsFromRealm();
+  }
+
   useEffect(async () => {
+    realmConnection.addListener("change", onRealmChange);
     setSensors([])
     navigation.addListener('focus', async () => {
       await getSensorsFromRealm();
