@@ -77,7 +77,6 @@ buck-out/
 *.log
 
 # Package files
-*.jar
 
 # Maven
 target/
