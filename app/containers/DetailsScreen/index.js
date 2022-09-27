@@ -17,6 +17,7 @@ import { compose } from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createStructuredSelector } from 'reselect';
 import { getSensorImage, getStatus, getType, logoutUser } from '../../utils/helper';
+import { COLORS } from 'utils/constants';
 
 let Alert = require('app/images/alert.png');
 let ImagePlaceholder = require('app/images/image.png');
@@ -47,7 +48,7 @@ export function DetailsScreen(props) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#053333',
+        backgroundColor: COLORS.theme,
       },
       headerTitle: () => (
         <Text fontSize={18} fontWeight={700} color={'white'} >Alert Detail
@@ -119,7 +120,7 @@ export function DetailsScreen(props) {
                 <Text h={8} paddingTop={-60} textAlign={'center'} fontSize={25} fontWeight={600} >{`${getType(sensor?.code)} Detected`}</Text>
                 <HStack h={8} alignItems={'center'} justifyContent='center' >
                   <Text fontSize={20} fontWeight={400} >Status: </Text>
-                  <Text color={sensor?.acknowledged ? 'green.700' : 'orange.400'} fontSize={20} bold fontWeight={400} >{getStatus(sensor?.acknowledged)}</Text>
+                  <Text color={sensor?.acknowledged ? 'red.700' : 'orange.400'} fontSize={20} bold fontWeight={400} >{getStatus(sensor?.acknowledged)}</Text>
                 </HStack>
               </VStack>
             </View>
@@ -167,7 +168,7 @@ export function DetailsScreen(props) {
                     }
                   }}
                   isLoadingText="Acknowledging" isLoading={isAcknowledging}
-                  onPress={() => onSubmitAcknowledgeOrBack()} color={'black'} backgroundColor={'green.500'} borderColor={'black.500'} variant="outline">
+                  onPress={() => onSubmitAcknowledgeOrBack()} color={'black'} backgroundColor={'red.500'} borderColor={'black.500'} variant="outline">
                   <Text fontSize={19} fontWeight={600} >{sensor?.acknowledged ? 'Back To Alerts' : 'Acknowledge'}</Text>
                 </Button>
               </VStack>

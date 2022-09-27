@@ -13,14 +13,15 @@ import InputScrollView from 'react-native-input-scroll-view';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import { COLORS } from 'utils/constants';
 import { getAndSetFCMToken } from 'utils/firebase';
 import { validateEmail } from 'utils/helper';
 import { getRealm, loginUser } from 'utils/realm';
 import { setRealmConnection, setRealmUserEmail } from './actions';
 import styles from './styles';
 
-let PMongo = require('app/images/pmongo.png');
-let LoginHeader = require('app/images/loginheader.png');
+//let PMongo = require('app/images/pmongo.png');
+//let LoginHeader = require('app/images/loginheader.png');
 let Wekan = require('app/images/wekan.png');
 let Eye = require('app/images/eye.png');
 let Eyex = require('app/images/eyex.png');
@@ -67,7 +68,7 @@ export function HomeScreen({ navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#032b2b',
+        backgroundColor: COLORS.theme,
       },
       headerTitle: () => (
         <Text fontSize={18} fontWeight={700} color={'white'} >
@@ -110,11 +111,11 @@ export function HomeScreen({ navigation }) {
         style={styles.scrollView}
       >
         <View style={{ flex: 1 }}>
-          <View>
+          {/* <View>
             <Image alt='Img' style={{ flex: 1, height: 200 }}
               source={LoginHeader}
             />
-          </View>
+          </View> */}
           <Image alt='Img' style={styles.close} source={Wekan} />
           <View style={{ paddingTop: 20 }} />
           <View style={styles.body}>
@@ -206,7 +207,7 @@ export function HomeScreen({ navigation }) {
                       }
                     }}
                       isDisabled={isLoginButtonDisabled}
-                      isLoadingText="Logging In" isLoading={isLoggingIn} h={50} onPress={onSubmitLogin} color={'black'} backgroundColor={'green.500'} borderColor={'black.500'} variant="outline">
+                      isLoadingText="Logging In" isLoading={isLoggingIn} h={50} onPress={onSubmitLogin} color={'black'} backgroundColor={'red.500'} borderColor={'black.500'} variant="outline">
                       <Text fontSize={19} fontWeight={600} >Login</Text>
                     </Button>
                   </VStack>
@@ -219,11 +220,11 @@ export function HomeScreen({ navigation }) {
       <View style={{ paddingBottom: 10, textAlign: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
         <HStack justifyContent="center">
           <Center>
-            <Text style={{ color: '#041624' }} >Powered by</Text>
+            <Text style={{ color: '#041624' }} >Powered by Wekan</Text>
           </Center>
-          <Center paddingBottom={1}>
-            <Image style={{ marginBottom: 0 }} alt='Img' height={6} width={100} source={PMongo} />
-          </Center>
+          {/* <Center paddingBottom={1}>
+            <Image style={{ marginBottom: 0 }} alt='Img' height={6} width={100} source={Wekan} />
+          </Center> */}
         </HStack>
       </View>
     </View>

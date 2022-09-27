@@ -18,6 +18,7 @@ import { createStructuredSelector } from 'reselect';
 import { getDate, getSensorImage, getStatus, getType, logoutUser } from '../../utils/helper';
 import { logout } from 'containers/DetailsScreen/actions';
 import { setLoading } from './actions';
+import { COLORS } from 'utils/constants';
 let Calander = require('app/images/calendar.png');
 let List = require('app/images/list.png');
 let Loader = require('app/images/loader.png');
@@ -41,7 +42,7 @@ export function SensorsScreen({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#053333',
+        backgroundColor: COLORS.theme,
       },
       headerTitle: () => (
         <Text fontSize={18} fontWeight={700} color={'white'} >Alerts
@@ -204,7 +205,7 @@ export function SensorsScreen({
                               }} color="coolGray.800" >
                                 {'Status'}
                               </Text>
-                              <Text fontWeight={800} fontSize={15} color={item?.acknowledged ? 'green.700' : 'orange.400'} bold _dark={{
+                              <Text fontWeight={800} fontSize={15} color={item?.acknowledged ? 'red.700' : 'orange.400'} bold _dark={{
                                 color: "black"
                               }}>
                                 {getStatus(item?.acknowledged)}
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: COLORS.theme,
   },
 });
 

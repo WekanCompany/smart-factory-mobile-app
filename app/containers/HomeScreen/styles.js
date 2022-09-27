@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from 'utils/constants';
 
 const styles = StyleSheet.create({
   background: {
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   separator: {
-    backgroundColor: '#DAE1E7',
+    backgroundColor: COLORS.theme,
     height: 1,
   },
 });

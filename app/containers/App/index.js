@@ -15,13 +15,15 @@ import SplashScreen from '../SplashScreen';
 import { NativeBaseProvider } from 'native-base';
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { COLORS } from 'utils/constants';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <StatusBar backgroundColor='#053333' />
+      <StatusBar backgroundColor= {COLORS.theme}/>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen name="Splash" options={{ headerShown: false }} component={SplashScreen} />

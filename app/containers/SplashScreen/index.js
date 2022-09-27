@@ -7,14 +7,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setRealmConnection } from 'containers/HomeScreen/actions';
 import React, { memo, useEffect } from 'react';
-import { ImageBackground } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { getAndSetFCMToken, firebaseMessageHandler } from 'utils/firebase';
 import { getRealm, loginUser } from 'utils/realm';
 
-let Splash = require('app/images/splash.png');
+//let Splash = require('app/images/splash.png');
+
+let Wekan = require('app/images/wekan.png');
 
 export function SplashScreen({
   navigation,
@@ -38,10 +40,23 @@ export function SplashScreen({
   }, []);
 
   return (
-    <ImageBackground source={Splash} style={{ width: '100%', height: '100%' }}>
-    </ImageBackground>
+    <View  style={styles.content}>
+      <Image  style={styles.img} source={Wekan} />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  content:{
+    flex: 1,
+    justifyContent:'center',
+    alignItems:'center'
+  }, 
+  img: {
+    width: 100,
+    height: 100,
+  }, 
+});
 
 const mapStateToProps = createStructuredSelector({
 });
